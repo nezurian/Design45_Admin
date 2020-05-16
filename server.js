@@ -35,7 +35,7 @@ server.use("/api/contents", contentsRoute, () => {});
 
 server.use(express.static("./client/build"));
 server.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  res.sendFile(path.join(__dirname, "client/build/index.html"));
 });
 
 
