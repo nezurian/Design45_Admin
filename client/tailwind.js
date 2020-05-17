@@ -2,6 +2,7 @@ module.exports = {
   prefix: "",
   important: false,
   separator: ":",
+  purge: ["./public/index.html", "./src/App.js", "./src/Components/*.js"],
   theme: {
     screens: {
       sm: "640px",
