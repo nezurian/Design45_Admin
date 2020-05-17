@@ -9,7 +9,7 @@ import { BTNMain } from "./Util.components";
 
 export default function ControlPanel(props) {
   // Mode Selector Tool
-  const [mode, setMode] = useState("create");
+  const [mode, setMode] = useState("settings");
   const modeSelector = (e) => {
     e.currentTarget.id === "logout"
       ? props.setAdmin({ adminMode: false, username: "", password: "" })

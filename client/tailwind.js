@@ -3,6 +3,7 @@ module.exports = {
   important: false,
   separator: ":",
   purge: ["./public/index.html", "./src/App.js", "./src/Components/*.js"],
+
   theme: {
     screens: {
       sm: "640px",
@@ -99,7 +100,39 @@ module.exports = {
         800: "#2c5282",
         900: "#2a4365",
       },
-      
+      indigo: {
+        100: "#ebf4ff",
+        200: "#c3dafe",
+        300: "#a3bffa",
+        400: "#7f9cf5",
+        500: "#667eea",
+        600: "#5a67d8",
+        700: "#4c51bf",
+        800: "#434190",
+        900: "#3c366b",
+      },
+      purple: {
+        100: "#faf5ff",
+        200: "#e9d8fd",
+        300: "#d6bcfa",
+        400: "#b794f4",
+        500: "#9f7aea",
+        600: "#805ad5",
+        700: "#6b46c1",
+        800: "#553c9a",
+        900: "#44337a",
+      },
+      pink: {
+        100: "#fff5f7",
+        200: "#fed7e2",
+        300: "#fbb6ce",
+        400: "#f687b3",
+        500: "#ed64a6",
+        600: "#d53f8c",
+        700: "#b83280",
+        800: "#97266d",
+        900: "#702459",
+      },
     },
     spacing: {
       px: "1px",
@@ -118,7 +151,7 @@ module.exports = {
       "16": "4rem",
       "20": "5rem",
       "24": "6rem",
-      "26": "7rem", 
+      "26": "7rem",
       "32": "8rem",
       "34": "9rem",
       "40": "10rem",
@@ -131,8 +164,8 @@ module.exports = {
       "84": "22rem",
       "88": "24rem",
       "96": "28rem",
-      "100": "30rem", 
-      "110": "35rem", 
+      "100": "30rem",
+      "110": "35rem",
       "120": "40rem",
     },
     backgroundColor: (theme) => theme("colors"),
@@ -170,7 +203,7 @@ module.exports = {
       "2": "2px",
       "4": "4px",
       "6": "6px",
-      
+      "8": "8px",
     },
     boxShadow: {
       xs: "0 0 0 1px rgba(0, 0, 0, 0.05)",
@@ -184,7 +217,7 @@ module.exports = {
       xl:
         "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
       "2xl": "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
-      
+      inner: "inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)",
       outline: "0 0 0 3px rgba(66, 153, 225, 0.5)",
       none: "none",
     },
@@ -272,10 +305,9 @@ module.exports = {
       ...theme("spacing"),
       full: "100%",
       screen: "100vh",
-      half:"50%",
+      half: "50%",
       cq: "25%",
-      c3q: "75%"
-
+      c3q: "75%",
     }),
     inset: {
       "0": "0",
@@ -289,7 +321,27 @@ module.exports = {
       wider: "0.05em",
       widest: "0.1em",
     },
-    
+    lineHeight: {
+      none: "1",
+      tight: "1.25",
+      snug: "1.375",
+      normal: "1.5",
+      relaxed: "1.625",
+      loose: "2",
+      "3": ".75rem",
+      "4": "1rem",
+      "5": "1.25rem",
+      "6": "1.5rem",
+      "7": "1.75rem",
+      "8": "2rem",
+      "9": "2.25rem",
+      "10": "2.5rem",
+    },
+    listStyleType: {
+      none: "none",
+      disc: "disc",
+      decimal: "decimal",
+    },
     margin: (theme, { negative }) => ({
       auto: "auto",
       ...theme("spacing"),
@@ -343,7 +395,23 @@ module.exports = {
       "75": "0.75",
       "100": "1",
     },
-    
+    order: {
+      first: "-9999",
+      last: "9999",
+      none: "0",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "10",
+      "11": "11",
+      "12": "12",
+    },
     padding: (theme) => theme("spacing"),
     placeholderColor: (theme) => theme("colors"),
     stroke: {
@@ -520,7 +588,15 @@ module.exports = {
       "125": "1.25",
       "150": "1.5",
     },
-    
+    rotate: {
+      "-180": "-180deg",
+      "-90": "-90deg",
+      "-45": "-45deg",
+      "0": "0",
+      "45": "45deg",
+      "90": "90deg",
+      "180": "180deg",
+    },
     translate: (theme, { negative }) => ({
       ...theme("spacing"),
       ...negative(theme("spacing")),
@@ -529,7 +605,15 @@ module.exports = {
       "1/2": "50%",
       full: "100%",
     }),
-    
+    skew: {
+      "-12": "-12deg",
+      "-6": "-6deg",
+      "-3": "-3deg",
+      "0": "0",
+      "3": "3deg",
+      "6": "6deg",
+      "12": "12deg",
+    },
     transitionProperty: {
       none: "none",
       all: "all",
@@ -550,6 +634,11 @@ module.exports = {
       "75": "75ms",
       "100": "100ms",
       "150": "150ms",
+      "200": "200ms",
+      "300": "300ms",
+      "500": "500ms",
+      "700": "700ms",
+      "1000": "1000ms",
     },
   },
   variants: {

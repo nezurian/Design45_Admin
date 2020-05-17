@@ -100,14 +100,14 @@ export default function EditPage(props) {
   return (
       <div
         className={` md:w-4/5 ${
-          props.editMode ? "border border-design45-darkgray rounded-lg" : null
+          props.editMode ? " rounded-lg" : null
         }`}
       >
         <div className="flex flex-col">
           {!props.editMode ? (
             <div>
               <div className="flex flex-row">
-                <h3 className="mb-4 uppercase flex w-5/6 text-2xl md:text-3xl border-gray-200 text-design45-darkgray">
+                <h3 className="mb-4 uppercase flex w-5/6 text-2xl md:text-3xl border-gray-200 text-teal-700">
                   {props.project.title}
                 </h3>
 
@@ -122,7 +122,7 @@ export default function EditPage(props) {
               </div>
 
               <div className="w-full flex">
-                <p className="text-design45-darkgray antialiased font-light leading-relaxed text-justify">
+                <p className="text-teal-900 antialiased font-light leading-relaxed text-justify">
                   {props.project.text}
                 </p>
               </div>

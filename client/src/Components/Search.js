@@ -18,7 +18,7 @@ export default function Search(props) {
       </p>
 
       <div className="flex flex-col space-x-6 xl:mt-8 mt-4 md:flex-row">
-        <div className="flex flex-col relative md:flex-col">
+        <div className="flex flex-col relative md:flex-col w-1/4">
           {!props.showProjects ? (
             <Types
               typeMenu={props.typeMenu}

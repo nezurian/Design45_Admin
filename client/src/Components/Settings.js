@@ -134,38 +134,40 @@ function Settings() {
         Ayarlar
       </p>
 
-      <div className="flex flex-col md:flex-row space-x-6">
-        <div className="flex flex-col relative md:flex-col md:mt-8">
-          <BTN
-            name="create"
-            id="BTNnewUser"
-            onClick={handleMode}
-            text="Yeni Kullanıcı"
-            icon="person_add"
-            color1="gray"
-            color2="gray"
-          />
+      <div className="flex flex-col md:flex-row md:space-x-6">
+        <div className=" w-full md:w-1/4 flex flex-col relative md:flex-col md:mt-8">
 
-          <h3 className=" text-xl mt-4 font-bold uppercase text-gray-900">
-            Kullanıcılar
-          </h3>
-          {users.map((user) => (
-            <div
-              key={user._id}
-              className="flex flex-row justify-between mt-2 uppercase text-gray-700 text-xl"
+          <div className="flex border-b border-blue-700 md:border-none mt-4 md:mt-0 text-blue-800 md:mb-2 md:ml-2 justify-between items-center">
+            <h3 className="text-xl font-bold  md:text-base lg:text-xl text-center md:text-left antialiased uppercase ">
+              Kullanıcılar
+            </h3>
+            <button
+              className="transition transform hover:scale-110 hover:text-blue-600 ease-in duration-100"
+              name="create"
+              id="BTNnewUser"
+              onClick={handleMode}
             >
-              <p className="mr-2">{user.username}</p>
+              <i className="material-icons">person_add</i>
+            </button>
+          </div>
+          <div className="rounded flex md:border-l md:border-t border-blue-700 px-4 md:pl-4 flex-col">
+            {users.map((user) => (
+              <button
+                id={user._id}
+                name="edit"
+                onClick={handleMode}
+                key={user._id}
+                className="transition flex justify-between duration-100 border-b border-white transform ease-in md:text-lg w-full xl:text-xl antialiased pt-2 my-2 text-lg md:text-xl text-design45-darkgray lg:text-left hover:text-blue-600 hover:border-blue-600"
+              >
+                {user.username}
 
-              <button name="edit" id={user._id} onClick={handleMode}>
-                <i className="material-icons mr-2 text-gray-500 hover:text-teal-400">
-                  create
-                </i>
+                <i className="material-icons">create</i>
               </button>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
-        <div className="w-full md:mt-8">
+        <div className="w-full md:w-3/4 md:mt-8 mt-10">
           {!mode ? null : (
             <UserInput
               mode={mode}
@@ -204,8 +206,8 @@ const UserInput = (props) => {
               onClick={props.handleMode}
               text="ŞİFRE DEĞİŞTİR"
               icon="security"
-              color1="gray"
-              color2="green"
+              hovertext="hover:text-green-800"
+              hoverbg="hover:bg-green-500"
             />
             <BTN
               name="deleteUser"
@@ -213,8 +215,8 @@ const UserInput = (props) => {
               onClick={props.deleteUser}
               text="Kullanıcıyı SİL"
               icon="delete"
-              color1="gray"
-              color2="red"
+              hovertext="hover:text-red-800"
+              hoverbg="hover:bg-red-500"
             />
           </div>
         ) : (
@@ -290,7 +292,7 @@ const UserInput = (props) => {
 const BTN = (props) => {
   return (
     <button
-      className={`flex transition items-center justify-center w-48 duration-150 delay-75 transform hover:scale-110 ease-in px-2 py-1 flex-row rounded-lg bg-${props.color1}-400 text-${props.color1}-800 hover:text-${props.color2}-800 hover:bg-${props.color2}-500`}
+      className={`flex transition items-center justify-center duration-150 delay-75 transform hover:scale-110 ease-in flex-row rounded-lg text-gray-800 ${props.hovertext}`}
       id={props.id}
       name={props.name}
       onClick={props.onClick}
@@ -304,9 +306,7 @@ const BTN = (props) => {
 const Input = (props) => {
   return (
     <>
-      <p className="text-sm xl:mt-8 mt-4 text-gray-600">
-        {props.title}
-      </p>
+      <p className="text-sm xl:mt-8 mt-4 text-gray-600">{props.title}</p>
       <input
         className="bg-white text-blue-900 focus:outline-none p-2 h-12 font-bold focus:border-blue-500 border border-gray-300 rounded-lg block w-full appearance-none leading-normal"
         type={props.type}

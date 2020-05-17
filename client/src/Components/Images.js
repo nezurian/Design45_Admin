@@ -1,28 +1,39 @@
-import React from "react";
+import React, {useState} from "react";
 import { delImgDB, delImgKit } from "../Controllers/Delete";
 
 export default function Images(props) {
-  var selectedIMGs = [];
+  const [selected, setSelected] = useState([])
+  // var selectedIMGs = [];
+  // const handleSelection = (e) => {
+  //   const img = e.currentTarget.id;
+  //   selectedIMGs.includes(img)
+  //     ? (selectedIMGs = selectedIMGs.filter((item) => item !== img)) // Removes Item
+  //     : selectedIMGs.push(img);
+  // };
+
   const handleSelection = (e) => {
     const img = e.currentTarget.id;
-    selectedIMGs.includes(img)
-      ? (selectedIMGs = selectedIMGs.filter((item) => item !== img)) // Removes Item
-      : selectedIMGs.push(img);
+    if (selected.includes(img)) {
+      var newArr = selected.filter((item) => item !== img)
+      setSelected(newArr); // Removes Item
+    } else {
+      setSelected([...selected, img])
+    }
   };
 
   const delIMGTrigger = async () => {
-    if (selectedIMGs.length < 1) {
+    if (selected.length < 1) {
       console.log("No Images Selected");
     } else {
       // Preparation:
       var images = props.project.images;
-      selectedIMGs.map((item) => {
+      selected.map((item) => {
         const toMongo = images.filter((object) => object.ID !== item);
         images = toMongo;
         return images;
       });
 
-      const result = await delImgKit(selectedIMGs);
+      const result = await delImgKit(selected);
       if (result.error === true) {
         console.log("Could not delete from ImageKit: ", result.message);
       } else {
@@ -37,7 +48,7 @@ export default function Images(props) {
       }
 
       props.setProject({ ...props.project, images: images });
-      selectedIMGs = [];
+      setSelected([])
     }
   };
 
@@ -45,9 +56,7 @@ export default function Images(props) {
 
   return (
     <div
-      className={`flex flex-row ${
-        props.editMode ? "shadow-xl" : null
-      } rounded flex-wrap my-4 bg-gray-100 text-gray-700`}
+      className={`flex flex-row rounded flex-wrap my-4 text-gray-700`}
     >
       {props.project.images.map((image) => (
         <div key={image.ID} className="flex md:w-1/6 w-1/3 h-24 object-cover p-2">
@@ -62,22 +71,23 @@ export default function Images(props) {
             null
           )}
           <img
-            className="border-2 border-design45-lightgray object-cover shadow-xl rounded hover:border-design45-darkgray"
+            className="border-2 border-design45-lightgray object-cover shadow-xl rounded hover:border-teal-700"
             src={image.URL}
             alt={image.URL}
           ></img>
         </div>
       ))}
 
-      {!props.editMode ? (
+      {selected.length === 0 ? (
         null
       ) : (
         <div className="flex items-center">
           <button
-            className="m-2 flex border border-red-600 rounded-full w-12 h-12 bg-red-500 justify-center items-center"
+            className="m-2 flex border transform text-gray-900 transition duration-150 ease-in hover:scale-110 border-gray-600 rounded-full w-12 h-12 bg-gray-200 hover:border-red-600 hover:bg-red-500 hover:text-red-900 justify-center items-center"
             onClick={delIMGTrigger}
           >
-            <div className="flex flex-row px-4 py-2 font-light text-sm text-red-900">
+            
+            <div className="flex flex-row px-4 py-2 font-light text-sm">
               <i className="material-icons"> delete </i>
             </div>
           </button>
