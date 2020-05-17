@@ -175,10 +175,50 @@ export default function ControlPanel(props) {
   };
 
   const buttons = [
-    { mode: mode, modeSelector: modeSelector, color: "green", name: "create" },
-    { mode: mode, modeSelector: modeSelector, color: "teal", name: "search" },
-    { mode: mode, modeSelector: modeSelector, color: "blue", name: "settings" },
-    { mode: mode, modeSelector: modeSelector, color: "gray", name: "logout" },
+    {
+      mode: mode,
+      modeSelector: modeSelector,
+      bgcolor: "bg-green-500",
+      bordercolor: "border-green-600",
+      textcolor: "text-green-700",
+      hoverbgcolor: "hover:bg-green-500",
+      hovertextcolor: "hover:text-green-800",
+      hoverbordercolor: "hover:border-green-600",
+      name: "create",
+    },
+    {
+      mode: mode,
+      modeSelector: modeSelector,
+      bgcolor: "bg-teal-500",
+      bordercolor: "border-teal-600",
+      textcolor: "text-teal-700",
+      hoverbgcolor: "hover:bg-teal-500",
+      hovertextcolor: "hover:text-teal-800",
+      hoverbordercolor: "hover:border-teal-600",
+      name: "search",
+    },
+    {
+      mode: mode,
+      modeSelector: modeSelector,
+      bgcolor: "bg-blue-500",
+      bordercolor: "border-blue-600",
+      textcolor: "text-blue-700",
+      hoverbgcolor: "hover:bg-blue-500",
+      hovertextcolor: "hover:text-blue-800",
+      hoverbordercolor: "hover:border-blue-600",
+      name: "settings",
+    },
+    {
+      mode: mode,
+      modeSelector: modeSelector,
+      bgcolor: "bg-gray-500",
+      bordercolor: "border-gray-600",
+      textcolor: "text-gray-700",
+      hoverbgcolor: "hover:bg-gray-500",
+      hovertextcolor: "hover:text-gray-800",
+      hoverbordercolor: "hover:border-gray-600",
+      name: "logout",
+    },
   ];
 
   return (
@@ -191,7 +231,12 @@ export default function ControlPanel(props) {
             key={button.name}
             mode={button.mode}
             modeSelector={button.modeSelector}
-            color={button.color}
+            bgcolor={button.bgcolor}
+            bordercolor={button.bordercolor}
+            textcolor={button.textcolor}
+            hoverbordercolor={button.hoverbordercolor}
+            hoverbgcolor={button.hoverbgcolor}
+            hovertextcolor={button.hovertextcolor}
             name={button.name}
           />
         ))}

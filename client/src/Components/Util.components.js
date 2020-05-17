@@ -12,17 +12,21 @@ const Alert = (props) => {
 };
 
 const BTNMain = (props) => {
+  var css; 
+  const fixed =
+    "flex m-2 items-center justify-center rounded-full outline-none md:h-12 md:w-12 ";
+  const a = `${props.bordercolor} ${props.bgcolor} ${props.textcolor} shadow-xl cursor-not-allowed border-2 `;
+
+  const b = `${props.hoverbgcolor}  ${props.hovertextcolor} transition duration-150 ease-in-out transform hover:-translate-y-1 hover:scale-110 cursor-pointer hover:text-gray-800 border text-gray-600 border-gray-200 `;
+
+  if (props.mode === props.name) {
+    css = fixed + a;
+  } else if (props.mode !== props.name) {
+    css = fixed + b;
+  }
+
   return (
-    <button
-      className={`flex m-2 items-center justify-center shadow-lg rounded-full md:h-12 md:w-12  
-      ${
-        props.mode === props.name
-          ? ` cursor-not-allowed text-${props.color}-600 border-2 border-${props.color}-300 bg-${props.color}-200`
-          : `transition duration-500 ease-in-out hover:bg-${props.color}-200 transform hover:-translate-y-1 hover:scale-110 cursor-pointer text-gray-600 hover:text-${props.color}-600 border border-gray-200 hover:bg-gray-100 hover:text-gray-800`
-      }`}
-      id={props.name}
-      onClick={props.modeSelector}
-    >
+    <button className={css} id={props.name} onClick={props.modeSelector}>
       <i className="material-icons text-4xl">{props.name}</i>
     </button>
   );
