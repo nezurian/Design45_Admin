@@ -4,7 +4,7 @@ import ControlPanel from "./ControlPanel";
 
 export default function Admin() {
   const [admin, setAdmin] = useState({
-    adminMode: true,
+    adminMode: false,
     username: "",
     password: "",
   });

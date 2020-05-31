@@ -14,7 +14,7 @@ const Alert = (props) => {
 const BTNMain = (props) => {
   var css; 
   const fixed =
-    "flex m-2 items-center justify-center rounded-full outline-none md:h-12 md:w-12 ";
+    "flex outlineclear m-2 items-center justify-center rounded-full outline-none md:h-12 md:w-12 ";
   const a = `${props.bordercolor} ${props.bgcolor} ${props.textcolor} shadow-xl cursor-not-allowed border-2 `;
 
   const b = `${props.hoverbgcolor}  ${props.hovertextcolor} transition duration-150 ease-in-out transform hover:-translate-y-1 hover:scale-110 cursor-pointer hover:text-gray-800 border text-gray-600 border-gray-200 `;
@@ -35,7 +35,7 @@ const BTNMain = (props) => {
 const BtnSendOK = (props) => {
   return (
     <div className="py-2 shadow-lg justify-center flex bg-green-300 hover:bg-green-400 w-32 border border-green-300 rounded">
-      <button onClick={props.sendTrigger}>
+      <button className="outlineclear" onClick={props.sendTrigger}>
         <div className="flex flex-row items-center justify-center">
           <p className="antialiased mx-2 font-medium text-green-900 ">Gönder</p>
           <i className="material-icons text-green-900  mx-2">send</i>
@@ -49,7 +49,7 @@ const BtnReset = (props) => {
   return (
     <div className="pl-4">
       <button
-        className="bg-gray-300 hover:bg-gray-400 w-12 text-black font-bold py-2 rounded-full shadow-lg"
+        className="bg-gray-300 outlineclear hover:bg-gray-400 w-12 text-black font-bold py-2 rounded-full shadow-lg"
         onClick={props.resetTrigger}
       >
         <div className="flex flex-row items-center justify-center">
